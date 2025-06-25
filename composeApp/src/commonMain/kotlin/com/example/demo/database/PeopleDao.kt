@@ -10,12 +10,12 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface PeopleDao {
     @Upsert
-    suspend fun upsert(person: Person)
+    suspend fun upsert(person: PersonEntity)
 
     @Delete
-    suspend fun  delete(person: Person)
+    suspend fun  delete(person: PersonEntity)
 
-    @Query("SELECT * FROM person")
-    fun getAllPeople(): Flow<List<Person>>
+    @Query("SELECT * FROM persons")
+    fun getAllPeople(): Flow<List<PersonEntity>>
 
 }

@@ -1,6 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
@@ -116,13 +116,11 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
-}
-
-dependencies {
     add("kspAndroid", libs.room.compiler)
     add("kspIosSimulatorArm64", libs.room.compiler)
     add("kspIosX64", libs.room.compiler)
     add("kspIosArm64", libs.room.compiler)
+
 }
 
 
@@ -130,9 +128,7 @@ room {
     schemaDirectory("$projectDir/schemas")
 }
 
-dependencies {
-    ksp(libs.room.compiler)
-}
+
 
 compose.desktop {
     application {
