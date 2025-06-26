@@ -5,6 +5,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.example.demo.database.getDatabaseBuilder
+import kotlinx.coroutines.Dispatchers
 
 fun main() = application {
     Window(
@@ -12,7 +13,7 @@ fun main() = application {
         title = "demo",
     ) {
 
-        val dao = getDatabaseBuilder().setDriver(BundledSQLiteDriver()).build().peopleDao()
+        val dao = getDatabaseBuilder().setDriver(BundledSQLiteDriver()).setQueryCoroutineContext(Dispatchers.IO).build().peopleDao()
         App(dao)
     }
 }

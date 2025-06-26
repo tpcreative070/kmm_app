@@ -15,7 +15,7 @@ abstract class PeopleDatabase : RoomDatabase() {
 
 // Room compiler generates the `actual` implementations
 
-@Suppress("NO_ACTUAL_FOR_EXPECT")
+
 expect object AppDatabaseConstructor : RoomDatabaseConstructor<PeopleDatabase> {
     override fun initialize(): PeopleDatabase
 }
